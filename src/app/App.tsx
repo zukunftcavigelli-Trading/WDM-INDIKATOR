@@ -65,7 +65,7 @@ export default function App() {
       <section className="py-20 px-6 bg-gradient-to-b from-[#0a0a0a] via-[#141414] to-[#0a0a0a]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl mb-16 text-center text-[#d4af37]">
-            So erhältst du vollen Zugriff zum WDM-Indicator
+            So erhältst du vollen Zugriff zum WDM-Indikator
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
