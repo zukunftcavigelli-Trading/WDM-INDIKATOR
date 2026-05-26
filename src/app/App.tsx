@@ -1,5 +1,6 @@
 import { Shield, MessageCircle, Play } from "lucide-react";
 import beispiel1 from "../imports/Indikator_BSP_1.jpg";
+import beispiel2 from "../imports/BTC-Indikator_BSP2.jpg";
 
 export default function App() {
   const scrollToForm = () => {
@@ -76,8 +77,18 @@ export default function App() {
               </p>
             </div>
 
-            {/* Beispiel 2-4 - Platzhalter */}
-            {[2, 3, 4].map((num) => (
+            {/* Beispiel 2 - BTC Bild */}
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-6 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+              <div className="aspect-video bg-[#0a0a0a] rounded-lg overflow-hidden border border-[rgba(212,175,55,0.15)]">
+                <img src={beispiel2} alt="WDM Indikator Bitcoin Trading" className="w-full h-full object-cover" />
+              </div>
+              <p className="text-[#d4af37] text-center mt-4 text-lg font-medium">
+                Was für ein Trade im Bitcoinmarkt
+              </p>
+            </div>
+
+            {/* Beispiel 3-4 - Platzhalter */}
+            {[3, 4].map((num) => (
               <div key={num} className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-6 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
                 <div className="aspect-video bg-[#0a0a0a] rounded-lg flex items-center justify-center border border-[rgba(212,175,55,0.15)]">
                   <div className="text-center">
