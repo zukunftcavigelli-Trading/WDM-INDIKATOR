@@ -27,7 +27,7 @@ export default function App() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <a
-                href="https://t.me/WDMMarketAnalytics"
+                href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#141414] border-2 border-[#d4af37] text-[#d4af37] py-4 px-8 rounded-lg hover:bg-[#d4af37] hover:text-white transition-all duration-300 flex items-center gap-2"
