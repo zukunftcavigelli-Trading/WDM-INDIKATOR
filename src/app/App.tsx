@@ -37,7 +37,7 @@ export default function App() {
                 className="bg-[#141414] border-2 border-[#d4af37] text-[#d4af37] py-4 px-8 rounded-lg hover:bg-[#d4af37] hover:text-white transition-all duration-300 flex items-center gap-2"
               >
                 <MessageCircle className="w-5 h-5" />
-                Telegram Support - Paul WDM-Community
+                24/7 WDM-Community Support
               </a>
             </div>
 
