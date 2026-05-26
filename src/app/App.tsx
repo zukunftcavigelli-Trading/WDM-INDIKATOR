@@ -3,6 +3,7 @@ import beispiel1 from "../imports/Indikator_BSP_1.jpg";
 import beispiel2 from "../imports/BTC-Indikator_BSP2.jpg";
 import beispiel3 from "../imports/photo_2026-05-26_23.16.35.jpeg";
 import beispiel4 from "../imports/photo_2026-05-26_23.16.21.jpeg";
+import { ContactForm } from "./components/ContactForm";
 
 export default function App() {
   const scrollToForm = () => {
@@ -206,69 +207,7 @@ export default function App() {
             Schreib uns und wir helfen dir gerne weiter!
           </p>
 
-          <form className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-[#f5f5f0] mb-2">
-                Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                required
-                className="w-full bg-[#1a1a1a] border border-[rgba(212,175,55,0.2)] rounded-lg px-4 py-3 text-[#f5f5f0] focus:border-[#d4af37] focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.3)] transition-all"
-                placeholder="Dein Name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-[#f5f5f0] mb-2">
-                E-Mail *
-              </label>
-              <input
-                type="email"
-                id="email"
-                required
-                className="w-full bg-[#1a1a1a] border border-[rgba(212,175,55,0.2)] rounded-lg px-4 py-3 text-[#f5f5f0] focus:border-[#d4af37] focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.3)] transition-all"
-                placeholder="deine@email.de"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-[#f5f5f0] mb-2">
-                Nachricht *
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={4}
-                className="w-full bg-[#1a1a1a] border border-[rgba(212,175,55,0.2)] rounded-lg px-4 py-3 text-[#f5f5f0] focus:border-[#d4af37] focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.3)] transition-all"
-                placeholder="Deine Frage zum Indikator..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-[#d4af37] to-[#16a34a] text-white py-4 px-6 rounded-lg hover:from-[#4ade80] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
-            >
-              Anfrage senden
-            </button>
-          </form>
-
-          {/* 24/7 Support Button */}
-          <div className="text-center mt-10">
-            <p className="text-[#a0a0a0] mb-4">
-              Oder schreib uns direkt auf Telegram:
-            </p>
-            <a
-              href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#141414] border-2 border-[#d4af37] text-[#d4af37] py-4 px-8 rounded-lg hover:bg-[#d4af37] hover:text-white transition-all duration-300"
-            >
-              <MessageCircle className="w-5 h-5" />
-              24/7 WDM-Community Support
-            </a>
-          </div>
+          <ContactForm />
         </div>
       </section>
 
