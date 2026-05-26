@@ -80,18 +80,24 @@ export default function App() {
           </div>
 
           {/* Buy Button */}
-          <div className="text-center">
-            <a
-              href="https://buy.stripe.com/7sY3cvdGq8Ht3MBaLHaZi00"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-5 px-12 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.6)] text-xl font-medium"
-            >
-              Jetzt Indikator für 99.99 EUR sichern
-            </a>
-            <p className="text-[#4ade80] text-sm mt-4">
-              Nur 99 Plätze verfügbar
-            </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-[#1a3d1a] to-[#0d1f0d] border-2 border-[#22c55e] rounded-2xl p-12 shadow-[0_0_40px_rgba(34,197,94,0.4)] text-center">
+              <h2 className="text-3xl md:text-5xl mb-4 text-[#22c55e]">
+                Sichere dir jetzt exclusiv den Indikator für nur 99.99 EUR
+              </h2>
+              <p className="text-xl text-[#4ade80] mb-10 font-medium">
+                Nur 99 Plätze für den Indikator frei
+              </p>
+
+              <a
+                href="https://buy.stripe.com/7sY3cvdGq8Ht3MBaLHaZi00"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-5 px-12 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] text-xl font-medium"
+              >
+                Jetzt Indikator sichern
+              </a>
+            </div>
           </div>
         </div>
       </section>
