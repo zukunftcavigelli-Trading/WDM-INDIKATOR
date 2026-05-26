@@ -61,6 +61,69 @@ export default function App() {
         </div>
       </section>
 
+      {/* Steps Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-[#0a0a0a] via-[#141414] to-[#0a0a0a]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl mb-16 text-center text-[#d4af37]">
+            So erhältst du vollen Zugriff zum WDM-Indicator
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Schritt 1 */}
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#d4af37] to-[#b8942f] rounded-full flex items-center justify-center text-[#0a0a0a] font-bold text-xl">
+                  1
+                </div>
+                <h3 className="text-xl text-[#d4af37]">Schritt 1</h3>
+              </div>
+              <p className="text-[#f5f5f0] text-lg">
+                Schau dir das Willkommens Video an
+              </p>
+            </div>
+
+            {/* Schritt 2 */}
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#d4af37] to-[#b8942f] rounded-full flex items-center justify-center text-[#0a0a0a] font-bold text-xl">
+                  2
+                </div>
+                <h3 className="text-xl text-[#d4af37]">Schritt 2</h3>
+              </div>
+              <p className="text-[#f5f5f0] text-lg">
+                Erwerbe den Indikator
+              </p>
+            </div>
+
+            {/* Schritt 3 */}
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#d4af37] to-[#b8942f] rounded-full flex items-center justify-center text-[#0a0a0a] font-bold text-xl">
+                  3
+                </div>
+                <h3 className="text-xl text-[#d4af37]">Schritt 3</h3>
+              </div>
+              <p className="text-[#f5f5f0] text-lg">
+                Schreibe unserem 24/7 Support und erhalte das komplette VIP Anleitungsvideo zum Indikator
+              </p>
+            </div>
+
+            {/* Schritt 4 */}
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#d4af37] to-[#b8942f] rounded-full flex items-center justify-center text-[#0a0a0a] font-bold text-xl">
+                  4
+                </div>
+                <h3 className="text-xl text-[#d4af37]">Schritt 4</h3>
+              </div>
+              <p className="text-[#f5f5f0] text-lg">
+                Happy Profits
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Example Images Section */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
