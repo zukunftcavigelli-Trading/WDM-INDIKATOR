@@ -9,7 +9,7 @@ export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: "Servus Paul, ich will mehr über den Indikator wissen, bitte nehme mit mir Kontakt auf",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -49,7 +49,7 @@ export function ContactForm() {
         setFormData({
           name: "",
           email: "",
-          message: "",
+          message: "Servus Paul, ich will mehr über den Indikator wissen, bitte nehme mit mir Kontakt auf",
         });
       } else {
         throw new Error("Fehler beim Senden");
