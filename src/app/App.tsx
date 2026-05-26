@@ -2,6 +2,7 @@ import { Shield, MessageCircle, Play } from "lucide-react";
 import beispiel1 from "../imports/Indikator_BSP_1.jpg";
 import beispiel2 from "../imports/BTC-Indikator_BSP2.jpg";
 import beispiel3 from "../imports/photo_2026-05-26_23.16.35.jpeg";
+import beispiel4 from "../imports/photo_2026-05-26_23.16.21.jpeg";
 
 export default function App() {
   const scrollToForm = () => {
@@ -98,16 +99,14 @@ export default function App() {
               </p>
             </div>
 
-            {/* Beispiel 4 - Platzhalter */}
+            {/* Beispiel 4 - BTC Bild */}
             <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-6 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
-              <div className="aspect-video bg-[#0a0a0a] rounded-lg flex items-center justify-center border border-[rgba(212,175,55,0.15)]">
-                <div className="text-center">
-                  <p className="text-[#d4af37] text-lg font-medium">Beispielbild 4</p>
-                  <p className="text-[#6a6a6a] text-sm mt-2">
-                    Hier kommt dein Screenshot
-                  </p>
-                </div>
+              <div className="aspect-video bg-[#0a0a0a] rounded-lg overflow-hidden border border-[rgba(212,175,55,0.15)]">
+                <img src={beispiel4} alt="WDM Indikator Bitcoin Trading" className="w-full h-full object-cover" />
               </div>
+              <p className="text-[#d4af37] text-center mt-4 text-lg font-medium">
+                Ein unglaublicher BTC-Trade mit unserem Indikator
+              </p>
             </div>
           </div>
 
