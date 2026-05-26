@@ -59,15 +59,15 @@ export default function App() {
             </div>
 
             {/* CTA Section after Video */}
-            <div className="max-w-4xl mx-auto mt-12">
-              <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div className="max-w-5xl mx-auto mt-12">
+              <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center">
                 {/* Green Buy Button */}
-                <div className="text-center md:text-left">
+                <div className="text-center md:text-right">
                   <a
                     href="https://buy.stripe.com/7sY3cvdGq8Ht3MBaLHaZi00"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-4 px-10 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] text-lg font-medium"
+                    className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-5 px-12 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] text-xl font-medium"
                   >
                     Jetzt Indikator sichern
                   </a>
