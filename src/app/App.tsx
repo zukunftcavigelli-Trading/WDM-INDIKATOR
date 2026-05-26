@@ -24,7 +24,7 @@ export default function App() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-[#f5f5f0] via-[#d4af37] to-[#f5f5f0] bg-clip-text text-transparent leading-tight">
-              Statt zig Indikatoren im Chart – ein Indikator, der dir den Klartext liefert
+              Statt viele Indikatoren im Chart – ein Indikator, der dir den Klartext liefert
             </h1>
 
             <p className="text-2xl md:text-3xl text-[#d4af37] mb-12 font-medium">
