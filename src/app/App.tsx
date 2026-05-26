@@ -72,7 +72,7 @@ export default function App() {
                 <img src={beispiel1} alt="WDM Indikator Gold Trading" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#d4af37] text-center mt-4 text-lg font-medium">
-                Grosse Winns in Goldmarkt mit dem WDM Indikator
+                Grosse Winns im Goldmarkt mit unserem Indikator
               </p>
             </div>
 
