@@ -129,12 +129,23 @@ export default function App() {
             </div>
 
             {/* Schritt 3 */}
-            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-[#d4af37] to-[#b8942f] rounded-full flex items-center justify-center text-[#0a0a0a] font-bold text-xl">
-                  3
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-8 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300 relative">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#d4af37] to-[#b8942f] rounded-full flex items-center justify-center text-[#0a0a0a] font-bold text-xl">
+                    3
+                  </div>
+                  <h3 className="text-xl text-[#d4af37]">Schritt 3</h3>
                 </div>
-                <h3 className="text-xl text-[#d4af37]">Schritt 3</h3>
+                <a
+                  href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-2 px-4 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] text-sm font-medium"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  24/7 Support
+                </a>
               </div>
               <p className="text-[#f5f5f0] text-lg">
                 Schreibe unserem 24/7 Support und erhalte das komplette VIP Anleitungsvideo zum Indikator
