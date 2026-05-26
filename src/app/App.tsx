@@ -1,4 +1,5 @@
 import { Shield, MessageCircle, Play } from "lucide-react";
+import beispiel1 from "../imports/Indikator_BSP_1.jpg";
 
 export default function App() {
   const scrollToForm = () => {
@@ -65,7 +66,18 @@ export default function App() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {[1, 2, 3, 4].map((num) => (
+            {/* Beispiel 1 - Echtes Bild */}
+            <div className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-6 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+              <div className="aspect-video bg-[#0a0a0a] rounded-lg overflow-hidden border border-[rgba(212,175,55,0.15)]">
+                <img src={beispiel1} alt="WDM Indikator Gold Trading" className="w-full h-full object-cover" />
+              </div>
+              <p className="text-[#d4af37] text-center mt-4 text-lg font-medium">
+                Grosse Winns in Goldmarkt mit dem WDM Indikator
+              </p>
+            </div>
+
+            {/* Beispiel 2-4 - Platzhalter */}
+            {[2, 3, 4].map((num) => (
               <div key={num} className="bg-[#141414] border border-[rgba(212,175,55,0.2)] rounded-xl p-6 hover:border-[rgba(212,175,55,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
                 <div className="aspect-video bg-[#0a0a0a] rounded-lg flex items-center justify-center border border-[rgba(212,175,55,0.15)]">
                   <div className="text-center">
