@@ -1,8 +1,9 @@
-import { Shield, MessageCircle, Play } from "lucide-react";
+import { Shield, MessageCircle } from "lucide-react";
 import beispiel1 from "../imports/Indikator_BSP_1.jpg";
 import beispiel2 from "../imports/BTC-Indikator_BSP2.jpg";
 import beispiel3 from "../imports/photo_2026-05-26_23.16.35.jpeg";
 import beispiel4 from "../imports/photo_2026-05-26_23.16.21.jpeg";
+import erklaervideo from "../imports/Erkla_rvideo_Website.mp4";
 import { ContactForm } from "./components/ContactForm";
 
 export default function App() {
@@ -42,19 +43,17 @@ export default function App() {
               </a>
             </div>
 
-            {/* Video Placeholder */}
+            {/* Video */}
             <div className="max-w-4xl mx-auto">
               <div className="bg-[#141414] border-2 border-[rgba(212,175,55,0.3)] rounded-2xl p-4 shadow-[0_0_40px_rgba(212,175,55,0.2)]">
-                <div className="aspect-video bg-[#0a0a0a] rounded-lg flex items-center justify-center border border-[rgba(212,175,55,0.2)]">
-                  <div className="text-center">
-                    <Play className="w-20 h-20 text-[#d4af37] mx-auto mb-4" />
-                    <p className="text-[#a0a0a0] text-lg">
-                      Erklärvideo Platzhalter
-                    </p>
-                    <p className="text-[#6a6a6a] text-sm mt-2">
-                      Hier wird später dein Video eingebettet
-                    </p>
-                  </div>
+                <div className="aspect-video bg-[#0a0a0a] rounded-lg overflow-hidden border border-[rgba(212,175,55,0.2)]">
+                  <video
+                    controls
+                    className="w-full h-full"
+                    src={erklaervideo}
+                  >
+                    Dein Browser unterstützt keine Videos.
+                  </video>
                 </div>
               </div>
             </div>
