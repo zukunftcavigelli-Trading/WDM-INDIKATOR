@@ -83,7 +83,7 @@ export default function App() {
                 <img src={beispiel2} alt="WDM Indikator Bitcoin Trading" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#d4af37] text-center mt-4 text-lg font-medium">
-                Was für ein Trade im Bitcoinmarkt
+                Was für ein Trade im Bitcoinmarkt mit unserem Indikator
               </p>
             </div>
 
