@@ -128,7 +128,7 @@ export function ContactForm() {
           href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#141414] border-2 border-[#d4af37] text-[#d4af37] py-4 px-8 rounded-lg hover:bg-[#d4af37] hover:text-white transition-all duration-300"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-4 px-8 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
         >
           <MessageCircle className="w-5 h-5" />
           24/7 WDM-Community Support
