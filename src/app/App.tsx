@@ -16,22 +16,22 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(212,175,55,0.05)] to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="relative max-w-7xl mx-auto px-6 py-8 md:py-12">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-[#141414] border border-[rgba(212,175,55,0.3)] rounded-full px-6 py-2 mb-8">
+            <div className="inline-flex items-center gap-2 bg-[#141414] border border-[rgba(212,175,55,0.3)] rounded-full px-6 py-2 mb-6">
               <Shield className="w-4 h-4 text-[#d4af37]" />
               <span className="text-sm text-[#d4af37]">WDM-Indikator</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-[#f5f5f0] via-[#d4af37] to-[#f5f5f0] bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-[#f5f5f0] via-[#d4af37] to-[#f5f5f0] bg-clip-text text-transparent leading-tight">
               Statt viele Indikatoren im Chart – ein Indikator, der dir den Klartext liefert
             </h1>
 
-            <p className="text-2xl md:text-3xl text-[#d4af37] mb-12 font-medium">
+            <p className="text-xl md:text-2xl text-[#d4af37] mb-8 font-medium">
               85% der angezeigten Zonen sind Winnerzonen
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <a
                 href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
                 target="_blank"
