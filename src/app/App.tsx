@@ -235,6 +235,41 @@ export default function App() {
               >
                 Jetzt Indikator sichern
               </a>
+
+              {/* Additional purchase options */}
+              <div className="grid md:grid-cols-2 gap-6 mt-8">
+                {/* Jahresabo */}
+                <div className="bg-[#0a0a0a] border border-[#22c55e] rounded-xl p-6 text-center">
+                  <div className="inline-block bg-[#22c55e] text-[#0a0a0a] px-3 py-1 rounded-full text-sm font-bold mb-3">
+                    -10% Rabatt
+                  </div>
+                  <h3 className="text-xl text-[#22c55e] mb-4 font-medium">Jahresabo</h3>
+                  <a
+                    href="https://buy.stripe.com/5kQ28r45QcXJcj7f1XaZi01"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-3 px-8 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] font-medium"
+                  >
+                    Jahresabo sichern
+                  </a>
+                </div>
+
+                {/* Lifetime */}
+                <div className="bg-[#0a0a0a] border border-[#22c55e] rounded-xl p-6 text-center">
+                  <div className="inline-block bg-[#22c55e] text-[#0a0a0a] px-3 py-1 rounded-full text-sm font-bold mb-3">
+                    Limitiertes Angebot
+                  </div>
+                  <h3 className="text-xl text-[#22c55e] mb-4 font-medium">Lifetime Zugang</h3>
+                  <a
+                    href="https://buy.stripe.com/bJe9ATaue8Hterff1XaZi02"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-3 px-8 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] font-medium"
+                  >
+                    Lifetime sichern
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
