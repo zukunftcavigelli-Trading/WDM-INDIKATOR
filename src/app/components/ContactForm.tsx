@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 
 // Telegram Bot Daten aus Umgebungsvariablen
 const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "";
@@ -119,20 +119,31 @@ export function ContactForm() {
         </button>
       </form>
 
-      {/* 24/7 Support Button */}
+      {/* 24/7 Support Buttons */}
       <div className="text-center mt-10">
         <p className="text-[#a0a0a0] mb-4">
-          Oder schreib uns direkt auf Telegram:
+          Oder schreib uns direkt:
         </p>
-        <a
-          href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-4 px-8 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
-        >
-          <MessageCircle className="w-5 h-5" />
-          24/7 WDM-Community Support
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-4 px-8 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
+          >
+            <MessageCircle className="w-5 h-5" />
+            24/7 Telegram Support
+          </a>
+          <a
+            href="https://wa.me/41765800339?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-4 px-8 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] font-medium"
+          >
+            <Phone className="w-5 h-5" />
+            24/7 WhatsApp Support
+          </a>
+        </div>
       </div>
     </>
   );
