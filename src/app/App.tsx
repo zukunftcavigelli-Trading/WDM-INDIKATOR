@@ -82,20 +82,31 @@ export default function App() {
                   </a>
                 </div>
 
-                {/* Text and Telegram Button */}
+                {/* Text and Contact Buttons */}
                 <div className="text-center md:text-left">
                   <p className="text-[#a0a0a0] mb-4">
-                    Du hast das Video geschaut und hast Fragen? Schreibe mir auf Telegram
+                    Du hast das Video geschaut und hast Fragen? Schreibe mir auf Telegram oder WhatsApp
                   </p>
-                  <a
-                    href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-3 px-6 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    24/7 Telegram Chat
-                  </a>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-3 px-6 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      24/7 Telegram Support
+                    </a>
+                    <a
+                      href="https://wa.me/41765800339?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-3 px-6 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] font-medium"
+                    >
+                      <Phone className="w-4 h-4" />
+                      24/7 WhatsApp Support
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
