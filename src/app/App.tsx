@@ -68,45 +68,43 @@ export default function App() {
             </div>
 
             {/* CTA Section after Video */}
-            <div className="max-w-5xl mx-auto mt-12">
-              <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center">
-                {/* Green Buy Button */}
-                <div className="text-center md:text-right">
+            <div className="max-w-4xl mx-auto mt-12 text-center">
+              {/* Green Buy Button */}
+              <div className="mb-8">
+                <a
+                  href="https://buy.stripe.com/7sY3cvdGq8Ht3MBaLHaZi00"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-5 px-12 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] text-xl font-medium"
+                >
+                  Jetzt Indikator sichern
+                </a>
+              </div>
+
+              {/* Text and Contact Buttons */}
+              <div>
+                <p className="text-[#a0a0a0] mb-4">
+                  Du hast das Video geschaut und hast Fragen? Schreibe mir auf Telegram oder WhatsApp
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
-                    href="https://buy.stripe.com/7sY3cvdGq8Ht3MBaLHaZi00"
+                    href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-5 px-12 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] text-xl font-medium"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-3 px-6 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
                   >
-                    Jetzt Indikator sichern
+                    <MessageCircle className="w-4 h-4" />
+                    24/7 Telegram Support
                   </a>
-                </div>
-
-                {/* Text and Contact Buttons */}
-                <div className="text-center md:text-left">
-                  <p className="text-[#a0a0a0] mb-4">
-                    Du hast das Video geschaut und hast Fragen? Schreibe mir auf Telegram oder WhatsApp
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a
-                      href="https://t.me/WDMMarketAnalytics?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-3 px-6 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] font-medium"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      24/7 Telegram Support
-                    </a>
-                    <a
-                      href="https://wa.me/41765800339?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-3 px-6 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] font-medium"
-                    >
-                      <Phone className="w-4 h-4" />
-                      24/7 WhatsApp Support
-                    </a>
-                  </div>
+                  <a
+                    href="https://wa.me/41765800339?text=Servus%20Paul,%20Ich%20habe%20eine%20Frage%20zum%20Indikator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white py-3 px-6 rounded-lg hover:from-[#4ade80] hover:to-[#22c55e] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] font-medium"
+                  >
+                    <Phone className="w-4 h-4" />
+                    24/7 WhatsApp Support
+                  </a>
                 </div>
               </div>
             </div>
