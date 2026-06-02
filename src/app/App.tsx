@@ -302,6 +302,30 @@ export default function App() {
         </div>
       </section>
 
+      {/* Community CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-[#0a0a0a] via-[#141414] to-[#0a0a0a]">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border-2 border-[#d4af37] rounded-2xl p-12 shadow-[0_0_40px_rgba(212,175,55,0.3)]">
+            <h2 className="text-3xl md:text-5xl mb-4 text-[#d4af37]">
+              Tritt unserer exklusiven Trading-Community bei
+            </h2>
+            <p className="text-xl text-[#f5f5f0] mb-10 font-medium max-w-2xl mx-auto">
+              Vernetze dich mit gleichgesinnten Tradern, erhalte exklusive Insights und tausche dich über Strategien aus
+            </p>
+
+            <a
+              href="https://t.me/+sUT1GzySFhIyNzI0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-[#d4af37] to-[#b8942f] text-[#0a0a0a] py-5 px-12 rounded-lg hover:from-[#e8c968] hover:to-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] text-xl font-medium"
+            >
+              <MessageCircle className="w-6 h-6" />
+              Jetzt Telegram-Gruppe beitreten
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form */}
       <section id="contact-form" className="py-20 px-6 bg-gradient-to-b from-[#0a0a0a] via-[#141414] to-[#0a0a0a]">
         <div className="max-w-2xl mx-auto">
