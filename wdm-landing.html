@@ -718,9 +718,23 @@
 (function(){
   "use strict";
 
-  /* ---- Countdown (48h from page load) ---- */
+  /* ---- Countdown (24h, persisted in localStorage) ---- */
   var el = document.getElementById('countdown');
-  var end = Date.now() + 48 * 60 * 60 * 1000;
+  var DURATION = 24 * 60 * 60 * 1000;
+  var STORAGE_KEY = 'wdm_countdown_end';
+  var end;
+  try {
+    var stored = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+    if (!stored || isNaN(stored) || stored <= Date.now()) {
+      end = Date.now() + DURATION;
+      localStorage.setItem(STORAGE_KEY, end);
+    } else {
+      end = stored;
+    }
+  } catch (e) {
+    // localStorage unavailable (private mode) — fall back to in-memory 24h
+    end = Date.now() + DURATION;
+  }
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
   function tick(){
     var diff = Math.max(0, end - Date.now());
