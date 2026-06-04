@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WDM Indicator — Один индикатор. Полная ясность. Реальная прибыль.</title>
+<meta name="description" content="WDM заменяет 10+ индикаторов одним инструментом, который описывает зоны спроса и предложения текстом. 85% точность зон. Gold (XAUUSD) и Bitcoin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0d0d;
+    --bg-alt:#111111;
+    --gold:#C9A84C;
+    --gold-soft:rgba(201,168,76,.22);
+    --green:#16a34a;
+    --green-bright:#1cb955;
+    --text:#f5f5f5;
+    --muted:#a7a29a;
+    --border:rgba(201,168,76,.2);
+    --card:#161616;
+    --serif:'Playfair Display', Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --maxw:1140px;
+    --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--serif);line-height:1.14;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{padding:80px 0}
+  .center{text-align:center}
+  .muted{color:var(--muted)}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--sans);font-weight:700;font-size:16px;
+    padding:15px 28px;border-radius:12px;border:0;cursor:pointer;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    line-height:1;text-align:center;
+  }
+  .btn-green{background:var(--green);color:#eafff1;box-shadow:0 10px 28px rgba(22,163,74,.3)}
+  .btn-green:hover{background:var(--green-bright);transform:translateY(-2px)}
+  .btn-gold-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+  .btn-gold-outline:hover{background:var(--gold);color:#1a1408;transform:translateY(-2px)}
+  .btn-gold{background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1408;box-shadow:0 8px 22px rgba(201,168,76,.28)}
+  .btn-gold:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,.18);font-weight:600}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-lg{font-size:18px;padding:18px 36px}
+  .btn-block{width:100%}
+
+  /* ---------- Nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(13,13,13,0);transition:background .3s ease, box-shadow .3s ease, padding .3s ease;padding:20px 0}
+  .nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.5);padding:13px 0}
+  .nav .inner{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:.05em;color:#fff}
+  .logo span{color:var(--gold)}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:60px 0 64px;text-align:center;background:radial-gradient(900px 440px at 50% -10%, rgba(201,168,76,.14), transparent 62%), linear-gradient(180deg,#100d07,var(--bg) 72%)}
+  .badge{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;border:1px solid var(--border);border-radius:999px;padding:8px 18px;margin-bottom:24px;background:rgba(201,168,76,.06)}
+  .hero h1{font-size:clamp(34px,6vw,60px);color:var(--gold);margin:0 auto 20px;max-width:15ch}
+  .hero p.lead{font-size:clamp(16px,2.3vw,20px);color:var(--text);max-width:660px;margin:0 auto;opacity:.92}
+  .hero p.lead b{color:var(--gold)}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+
+  /* ---------- Video shell ---------- */
+  .video-shell{max-width:800px;margin:36px auto 0;background:#000;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 26px 64px rgba(0,0,0,.62)}
+  .video-shell video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:cover}
+
+  /* ---------- Trust metrics ---------- */
+  .metrics{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 0}
+  .metrics .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+  .metric .n{font-family:var(--serif);font-size:clamp(22px,3vw,34px);color:var(--gold);font-weight:800}
+  .metric .l{color:var(--muted);font-size:13px;letter-spacing:.04em;margin-top:5px}
+  .metric+ .metric{position:relative}
+
+  /* ---------- Section heads ---------- */
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 46px}
+  .sec-head h2{font-size:clamp(28px,4.4vw,42px);color:var(--gold);margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-size:17px}
+
+  /* ---------- About ---------- */
+  .about{background:var(--bg-alt)}
+  .about .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .about h2{font-size:clamp(26px,4vw,38px);color:var(--gold);margin-bottom:20px}
+  .about p{color:var(--text);margin-bottom:16px;font-size:16.5px;opacity:.92}
+  .feat{list-style:none;display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px}
+  .feat li{display:flex;gap:13px;align-items:flex-start;font-size:16px}
+  .feat .chk{color:var(--green-bright);font-weight:900;flex:0 0 auto}
+
+  /* ---------- Video CTA card ---------- */
+  .videocta .card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:48px 30px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .videocta h2{font-size:clamp(26px,4vw,38px);color:var(--gold);margin-bottom:10px}
+  .videocta p{color:var(--muted);margin-bottom:8px}
+
+  /* ---------- Results gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:980px;margin:0 auto}
+  .shot{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card);transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease}
+  .shot:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 16px 40px rgba(0,0,0,.5)}
+  .shot .frame{aspect-ratio:16/9;background:repeating-linear-gradient(45deg,rgba(201,168,76,.05) 0 12px,transparent 12px 24px),linear-gradient(160deg,#14110a,#0c0c0c);display:grid;place-items:center;border-bottom:1px solid var(--border)}
+  .shot .frame .chip{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px dashed var(--border);padding:6px 14px;border-radius:8px}
+  .shot .cap{padding:16px 18px;font-size:14.5px;color:#e8e3da}
+  .shot .cap b{color:var(--gold)}
+
+  /* ---------- Process timeline ---------- */
+  .process{background:var(--bg-alt)}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step;position:relative}
+  .tstep{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px 22px;text-align:center;transition:transform .25s ease, border-color .25s ease}
+  .tstep:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .tstep .num{counter-increment:step;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1408;font-family:var(--serif);font-weight:800;font-size:23px}
+  .tstep .num::before{content:counter(step)}
+  .tstep h3{font-family:var(--sans);font-size:17px;font-weight:700;margin-bottom:6px}
+  .tstep p{color:var(--muted);font-size:14px}
+
+  /* ---------- Pricing ---------- */
+  .pricing{background:linear-gradient(180deg,#08130c,#0a1810);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:840px;margin:0 auto}
+  .plan{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 30px;position:relative;display:flex;flex-direction:column;transition:transform .25s ease}
+  .plan:hover{transform:translateY(-4px)}
+  .plan.best{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold), 0 22px 54px rgba(201,168,76,.18)}
+  .plan .pbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:999px;white-space:nowrap}
+  .pbadge.gold{background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1408}
+  .pbadge.disc{background:#16331f;color:var(--green-bright);border:1px solid rgba(28,185,85,.4)}
+  .plan .pname{font-family:var(--serif);font-size:25px;color:#fff;margin-bottom:6px}
+  .plan .pdesc{color:var(--muted);font-size:14px;margin-bottom:20px}
+  .price{display:flex;align-items:baseline;gap:10px}
+  .price .now{font-family:var(--serif);font-size:44px;font-weight:800;color:var(--gold)}
+  .price .was{color:var(--muted);text-decoration:line-through;font-size:20px}
+  .price-sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .plan ul{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:12px}
+  .plan ul li{display:flex;gap:10px;font-size:15px}
+  .plan ul li .chk{color:var(--green-bright);font-weight:900}
+  .plan .spend{margin-top:auto}
+
+  /* ---------- Guarantee ---------- */
+  .guarantee .gbox{max-width:760px;margin:0 auto;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:38px 30px}
+  .gbox .shield{font-size:42px;margin-bottom:12px}
+  .gbox h3{font-family:var(--serif);font-size:25px;color:var(--gold);margin-bottom:8px}
+  .gbox p{color:var(--muted)}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--bg-alt)}
+  .contact .cols{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start;max-width:960px;margin:0 auto}
+  .contact h2{font-size:clamp(26px,4vw,36px);color:var(--gold);margin-bottom:12px}
+  .contact p{color:var(--muted);margin-bottom:24px}
+  form{display:flex;flex-direction:column;gap:15px}
+  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;letter-spacing:.03em}
+  .field input,.field textarea{width:100%;background:#0c0c0c;border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:15px;padding:13px 14px;resize:vertical}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+  .tg-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
+  .tg-card h3{font-family:var(--serif);color:#fff;font-size:23px;margin-bottom:10px}
+  .tg-card p{margin-bottom:22px}
+  .form-ok{display:none;color:var(--green-bright);font-weight:700;font-size:14px}
+
+  /* ---------- Footer ---------- */
+  footer{background:#070707;border-top:1px solid var(--border);padding:48px 0 38px}
+  .foot-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);font-size:14px}
+  .foot-links a:hover{color:var(--gold)}
+  .disclaimer{color:#6f6a62;font-size:12px;line-height:1.7;border-top:1px solid rgba(255,255,255,.06);padding-top:22px}
+  .copy{color:#6f6a62;font-size:13px;margin-top:14px}
+
+  /* ---------- Fade-in ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:880px){
+    section{padding:60px 0}
+    .metrics .grid{grid-template-columns:repeat(2,1fr);gap:26px}
+    .about .cols{grid-template-columns:1fr;gap:30px}
+    .gallery{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr}
+    .plans{grid-template-columns:1fr;max-width:440px}
+    .contact .cols{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .hero-ctas .btn{width:100%}
+    .logo{font-size:22px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. NAV -->
+<header class="nav" id="nav">
+  <div class="wrap inner">
+    <div class="logo">W<span>DM</span></div>
+    <a href="#pricing" class="btn btn-gold-outline" style="padding:11px 22px;font-size:15px">Получить доступ</a>
+  </div>
+</header>
+
+<!-- 2. HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="badge">Используется профессиональными трейдерами</span>
+    <h1>Один индикатор. Полная ясность. Реальная прибыль.</h1>
+    <p class="lead">
+      WDM заменяет 10+ индикаторов на графике одним инструментом, который описывает зоны
+      спроса и предложения <b>простым текстом</b> — без визуального шума. Алгоритм работает на
+      <b>золоте (XAUUSD)</b> и <b>биткоине (BTC)</b>, а <b>85%</b> показанных зон оказываются прибыльными.
+    </p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn btn-green btn-lg">Получить WDM — 99,99€</a>
+      <a href="#video" class="btn btn-ghost btn-lg">Посмотреть как работает ↓</a>
+    </div>
+
+    <div class="video-shell reveal">
+      <video src="/assets/Erkla_rvideo_Website-DdmOFXPo.mp4" controls playsinline muted></video>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRUST METRICS -->
+<section class="metrics" style="padding:36px 0">
+  <div class="wrap">
+    <div class="grid">
+      <div class="metric reveal"><div class="n">847+</div><div class="l">трейдеров</div></div>
+      <div class="metric reveal"><div class="n">85%</div><div class="l">точность зон</div></div>
+      <div class="metric reveal"><div class="n">BTC + GOLD</div><div class="l">рынки</div></div>
+      <div class="metric reveal"><div class="n">24/7</div><div class="l">поддержка</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ABOUT THE INDICATOR -->
+<section class="about">
+  <div class="wrap">
+    <div class="cols">
+      <div class="reveal">
+        <h2>Текст вместо визуального шума</h2>
+        <p>
+          Профессионалу не нужен график, заваленный десятком пересекающихся линий. Ему нужен
+          ответ. WDM анализирует структуру рынка и выдаёт его словами: где находится зона,
+          насколько она сильна и что вероятнее всего произойдёт дальше.
+        </p>
+        <p>
+          Это философия ясности вместо догадок. Один индикатор, одно описание, одно решение —
+          на любом таймфрейме, прямо в вашем TradingView.
+        </p>
+      </div>
+      <ul class="feat reveal">
+        <li><span class="chk">✓</span> Заменяет 10+ классических индикаторов</li>
+        <li><span class="chk">✓</span> Текстовое описание каждой зоны спроса и предложения</li>
+        <li><span class="chk">✓</span> 85% показанных зон — прибыльные</li>
+        <li><span class="chk">✓</span> Оптимизирован под Gold (XAUUSD) и Bitcoin</li>
+        <li><span class="chk">✓</span> Работает напрямую в TradingView</li>
+        <li><span class="chk">✓</span> Поддержка сообщества 24/7 в Telegram</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. VIDEO CTA SECTION -->
+<section class="videocta" id="video">
+  <div class="wrap">
+    <div class="card reveal">
+      <h2>Узнай всё за 60 секунд</h2>
+      <p>Посмотри, как индикатор описывает зоны в реальном графике.</p>
+      <div class="video-shell" style="margin-top:26px">
+        <video src="/assets/Erkla_rvideo_Website-DdmOFXPo.mp4" controls playsinline muted></video>
+      </div>
+      <div style="margin-top:28px">
+        <a href="#pricing" class="btn btn-green btn-lg">Получить доступ — 99,99€</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. RESULTS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>WDM в действии</h2>
+      <p>Примеры зон, отмеченных индикатором на золоте и биткоине.</p>
+    </div>
+    <div class="gallery">
+      <div class="shot reveal"><div class="frame"><span class="chip">Скриншот графика</span></div><div class="cap"><b>XAUUSD · M15</b> — зона спроса описана текстом, чистый вход в лонг.</div></div>
+      <div class="shot reveal"><div class="frame"><span class="chip">Скриншот графика</span></div><div class="cap"><b>BTC/USD · H1</b> — зона предложения распознана до отката, точный шорт.</div></div>
+      <div class="shot reveal"><div class="frame"><span class="chip">Скриншот графика</span></div><div class="cap"><b>Gold · H4</b> — сильная зона подтверждена, многодневный тренд взят.</div></div>
+      <div class="shot reveal"><div class="frame"><span class="chip">Скриншот графика</span></div><div class="cap"><b>BTC · M30</b> — текстовый сигнал отсекает ложный пробой, точный ре-вход.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PROCESS -->
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Как начать</h2>
+      <p>Четыре шага от доступа до первого торгового решения.</p>
+    </div>
+    <div class="timeline">
+      <div class="tstep reveal"><div class="num"></div><h3>Смотришь видео</h3><p>За минуту понимаешь логику WDM.</p></div>
+      <div class="tstep reveal"><div class="num"></div><h3>Получаешь индикатор</h3><p>Мгновенный доступ прямо в TradingView.</p></div>
+      <div class="tstep reveal"><div class="num"></div><h3>VIP-обучение</h3><p>Персональный разбор от поддержки.</p></div>
+      <div class="tstep reveal"><div class="num"></div><h3>Торгуешь по зонам</h3><p>Превращаешь ясность в решения.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Выберите доступ</h2>
+      <p>Настройте один раз — торгуйте с ясностью постоянно.</p>
+    </div>
+    <div class="plans">
+      <!-- Annual -->
+      <div class="plan reveal">
+        <span class="pbadge disc">Скидка 10%</span>
+        <div class="pname">Годовая подписка</div>
+        <div class="pdesc">Полный доступ на 12 месяцев</div>
+        <div class="price"><span class="now">89,99€</span><span class="was">99,99€</span></div>
+        <div class="price-sub">в год · экономия 10%</div>
+        <ul>
+          <li><span class="chk">✓</span> WDM для Gold и BTC</li>
+          <li><span class="chk">✓</span> Текстовые зоны и обновления</li>
+          <li><span class="chk">✓</span> VIP-обучение и поддержка в Telegram</li>
+        </ul>
+        <div class="spend"><a href="#contact" class="btn btn-green btn-block">Оформить годовую подписку</a></div>
+      </div>
+
+      <!-- Lifetime -->
+      <div class="plan best reveal">
+        <span class="pbadge gold">Рекомендуем</span>
+        <div class="pname">Пожизненный доступ</div>
+        <div class="pdesc">Оплата один раз — доступ навсегда</div>
+        <div class="price"><span class="now">99,99€</span><span class="price-sub" style="margin:0">единоразово</span></div>
+        <div class="price-sub">все будущие обновления включены</div>
+        <ul>
+          <li><span class="chk">✓</span> Пожизненный доступ без продлений</li>
+          <li><span class="chk">✓</span> WDM для Gold и BTC</li>
+          <li><span class="chk">✓</span> VIP-обучение и поддержка 24/7</li>
+          <li><span class="chk">✓</span> Лучшая цена в долгосрочной перспективе</li>
+        </ul>
+        <div class="spend"><a href="#contact" class="btn btn-green btn-block">Получить пожизненный доступ</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. GUARANTEE -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="gbox reveal">
+      <div class="shield">🛡️</div>
+      <h3>30-дневная поддержка</h3>
+      <p>Первые 30 дней наша команда сопровождает вас при настройке и первых разборах зон — напрямую в Telegram. Вы не остаётесь один на один с инструментом.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="cols">
+      <div class="reveal">
+        <h2>Остались вопросы? Напишите нам.</h2>
+        <p>Обычно отвечаем в течение нескольких часов.</p>
+        <form id="contactForm">
+          <div class="field"><label for="name">Имя</label><input id="name" name="name" type="text" placeholder="Ваше имя" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="message">Сообщение</label><textarea id="message" name="message" rows="4" placeholder="Чем можем помочь?" required></textarea></div>
+          <button type="submit" class="btn btn-gold">Отправить сообщение</button>
+          <span class="form-ok" id="formOk">✓ Спасибо! Мы свяжемся с вами в ближайшее время.</span>
+        </form>
+      </div>
+      <div class="tg-card reveal">
+        <h3>Быстрее — через Telegram</h3>
+        <p class="muted">Присоединяйтесь к сообществу WDM и задайте вопрос напрямую. Поддержка 24/7.</p>
+        <a href="https://t.me/" target="_blank" rel="noopener" class="btn btn-gold-outline btn-block">✈️ Открыть Telegram</a>
+        <p class="muted" style="font-size:13px;margin-top:18px">Там же вы получите VIP-обучение после покупки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="logo">W<span>DM</span></div>
+      <nav class="foot-links">
+        <a href="#top">Начало</a>
+        <a href="#video">Видео</a>
+        <a href="#pricing">Цены</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+    <p class="disclaimer">
+      <b>Предупреждение о рисках:</b> торговля финансовыми инструментами, включая золото и
+      криптовалюты, сопряжена со значительным риском и может привести к полной потере вложенного
+      капитала. Индикатор WDM является аналитическим инструментом и не представляет собой
+      инвестиционную, финансовую или налоговую консультацию. Указанные значения точности основаны
+      на исторических данных; прошлые результаты не гарантируют будущих. Торгуйте только тем
+      капиталом, потерю которого вы можете себе позволить.
+    </p>
+    <p class="copy">© 2026 WDM Indicator. Все права защищены.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Sticky nav background after scroll */
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* Fade-in on scroll */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    reveals.forEach(function(r){ io.observe(r); });
+  } else {
+    reveals.forEach(function(r){ r.classList.add('in'); });
+  }
+
+  /* Contact form (demo handler) */
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formOk').style.display = 'block';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
