@@ -1,0 +1,11 @@
+# Deploy the standalone WDM landing page as a static site (no Vite build).
+# This file overrides the build/publish settings configured in the Netlify UI.
+[build]
+  # Assemble a clean publish folder: wdm-landing.html -> index.html, plus assets/
+  command = "rm -rf _site && mkdir -p _site && cp wdm-landing.html _site/index.html && cp -R assets _site/assets && cp robots.txt sitemap.xml _site/"
+  publish = "_site"
+
+# No Node/Vite build needed — skip dependency install for a faster, robust deploy.
+[build.environment]
+  NETLIFY_USE_PNPM = "false"
+  NPM_FLAGS = "--no-install"
