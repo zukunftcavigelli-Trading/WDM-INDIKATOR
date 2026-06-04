@@ -355,7 +355,7 @@
 
 <!-- 1. STICKY SCARCITY BAR -->
 <div class="topbar">
-  <span>⚡ Nur noch <b>99 Plätze</b> — Preis steigt in</span>
+  <span>⚡ Nur noch <b>7 Plätze</b> — Preis steigt in</span>
   <span class="count" id="countdown">48:00:00</span>
 </div>
 
@@ -555,7 +555,7 @@
       <h2>Wähle deinen Zugang</h2>
       <p>Einmal einrichten — dauerhaft klarer traden.</p>
     </div>
-    <div class="scarcity-pill reveal">⚠️ Nur noch 99 Plätze zu diesem Preis</div>
+    <div class="scarcity-pill reveal">⚠️ Nur noch 7 Plätze zu diesem Preis</div>
 
     <div class="plans">
       <!-- Monatlich -->
@@ -738,22 +738,29 @@
 (function(){
   "use strict";
 
-  /* ---- Countdown (24h, persisted in localStorage) ---- */
+  /* ---- Countdown: time to next full hour + 1 hour, fixed per visitor ---- */
   var el = document.getElementById('countdown');
-  var DURATION = 24 * 60 * 60 * 1000;
-  var STORAGE_KEY = 'wdm_countdown_end';
+  var STORAGE_KEY = 'wdm_countdown_end_v2';
+  // e.g. first visit at 21:15 -> top of next hour (22:00) + 1h = 23:00 -> shows 01:45:00
+  function computeEnd(){
+    var d = new Date();
+    d.setMinutes(0, 0, 0);
+    d.setHours(d.getHours() + 2); // next full hour + 1 hour
+    return d.getTime();
+  }
   var end;
   try {
     var stored = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-    if (!stored || isNaN(stored) || stored <= Date.now()) {
-      end = Date.now() + DURATION;
+    if (!stored || isNaN(stored)) {
+      // first visit: set the deadline once and remember it (never refreshed afterwards)
+      end = computeEnd();
       localStorage.setItem(STORAGE_KEY, end);
     } else {
-      end = stored;
+      end = stored; // keep the stored deadline; do not reset, even once expired
     }
   } catch (e) {
-    // localStorage unavailable (private mode) — fall back to in-memory 24h
-    end = Date.now() + DURATION;
+    // localStorage unavailable (private mode) — fall back to in-memory deadline
+    end = computeEnd();
   }
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
   function tick(){
