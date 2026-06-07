@@ -1055,6 +1055,14 @@ src="https://www.facebook.com/tr?id=1227729002638679&ev=PageView&noscript=1"/></
       fbq('track', 'InitiateCheckout', val ? { value: val, currency: 'EUR' } : {});
     });
   });
+
+  /* ---- Track community join (custom) + contact clicks ---- */
+  document.querySelectorAll('a[href*="t.me/+"]').forEach(function(a){
+    a.addEventListener('click', function(){ if (window.fbq) fbq('trackCustom', 'JoinCommunity'); });
+  });
+  document.querySelectorAll('a[href*="t.me/WDMMarketAnalytics"], a[href*="wa.me/"]').forEach(function(a){
+    a.addEventListener('click', function(){ if (window.fbq) fbq('track', 'Contact'); });
+  });
 })();
 </script>
 </body>
