@@ -935,41 +935,40 @@ src="https://www.facebook.com/tr?id=1227729002638679&ev=PageView&noscript=1"/></
 (function(){
   "use strict";
 
-  /* ---- Countdown: time to next full hour + 1 hour, fixed per visitor ---- */
+  /* ---- Countdown: time to next full hour + 1 hour; restarts when it ends ---- */
   var el = document.getElementById('countdown');
   var STORAGE_KEY = 'wdm_countdown_end_v2';
-  // e.g. first visit at 21:15 -> top of next hour (22:00) + 1h = 23:00 -> shows 01:45:00
+  // e.g. at 21:15 -> top of next hour (22:00) + 1h = 23:00 -> shows 01:45:00
   function computeEnd(){
     var d = new Date();
     d.setMinutes(0, 0, 0);
     d.setHours(d.getHours() + 2); // next full hour + 1 hour
     return d.getTime();
   }
+  function setEnd(){
+    var e = computeEnd();
+    try { localStorage.setItem(STORAGE_KEY, e); } catch (err) {}
+    return e;
+  }
   var end;
   try {
     var stored = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-    if (!stored || isNaN(stored)) {
-      // first visit: set the deadline once and remember it (never refreshed afterwards)
-      end = computeEnd();
-      localStorage.setItem(STORAGE_KEY, end);
-    } else {
-      end = stored; // keep the stored deadline; do not reset, even once expired
-    }
+    // reuse the stored deadline only if it is still in the future; otherwise start fresh
+    end = (!stored || isNaN(stored) || stored <= Date.now()) ? setEnd() : stored;
   } catch (e) {
-    // localStorage unavailable (private mode) — fall back to in-memory deadline
     end = computeEnd();
   }
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
   function tick(){
-    var diff = Math.max(0, end - Date.now());
+    var diff = end - Date.now();
+    if (diff <= 0) { end = setEnd(); diff = end - Date.now(); } // restart on end
     var h = Math.floor(diff / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
     el.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
-    if (diff <= 0) clearInterval(timer);
   }
   tick();
-  var timer = setInterval(tick, 1000);
+  setInterval(tick, 1000);
 
   /* ---- Sticky nav background after 100px ---- */
   var nav = document.getElementById('nav');
